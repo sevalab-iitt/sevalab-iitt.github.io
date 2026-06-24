@@ -1,1 +1,1 @@
-# sevalabiittp.github.io
+# sevalab-iittp.github.io
