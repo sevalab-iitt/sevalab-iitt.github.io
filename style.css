@@ -586,8 +586,12 @@ body.testbed-page nav ul li a.active::after {
 .topview-figure {
   margin: 0;
 }
+.topview-link {
+  display: block;
+}
 
 .topview-figure img {
+  display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: contain;
@@ -985,5 +989,38 @@ body.testbed-page nav ul li a.active::after {
 
   .viewer-container {
     min-height: 300px;
+  }
+}
+/* Research table: prevent labels and text from overlapping on mobile */
+@media (max-width: 768px) {
+  body.research table,
+  body.research thead,
+  body.research tbody,
+  body.research tr,
+  body.research th,
+  body.research td {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  body.research td {
+    display: grid;
+    grid-template-columns: minmax(110px, 32%) minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+    position: static;
+    overflow-wrap: anywhere;
+  }
+
+  body.research td::before {
+    content: attr(data-label);
+    position: static;
+    font-weight: bold;
+    color: #2874a6;
+  }
+
+  body.research td a {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 }
