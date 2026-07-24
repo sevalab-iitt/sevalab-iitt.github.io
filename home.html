@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SEVA Lab autonomous systems test-bed, interactive 3D model, and technical specifications.">
+  <title>Test-Bed - SEVA Lab</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+</head>
+<body class="testbed-page">
+  <header>
+    <div class="logo-container">
+      <img src="iittplogo.png" alt="IIT Tirupati logo">
+      <img src="logo.png" alt="SEVA Lab logo">
+      <span class="lab-name">SEVA Lab</span>
+    </div>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+      <span class="sr-only">Toggle navigation</span>
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="main-navigation" aria-label="Primary navigation">
+      <ul>
+        <li><a href="home.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="index.html">Posters</a></ul>li>
+        <li><a href="research.html">Area of Research</a></li>
+        <li><a href="Projects.html">Equipments</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="people.html">People</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="testbed-main">
+    <section class="page-intro" aria-labelledby="testbed-title">
+      
+      <h1 id="testbed-title">CV Test-Bed Building in Progress</h1>
+      
+    </section>
+
+    <section class="visualization-grid" aria-label="Test-bed visualizations">
+      <article class="visual-card">
+        <div class="card-heading">
+          <div>
+            <p class="card-kicker">2D plan</p>
+            <h2>Test-Bed Top View</h2>
+          </div>
+          <a class="small-link" href="testbed_topview.png" target="_blank" rel="noopener">Open PDF</a>
+        </div>
+        <figure class="topview-figure">
+          <img src="testbed_topview.png" alt="Top-view plan of the SEVA Lab test-bed showing the active tracking arena, server rack, command center, hardware bay, cameras, and room dimensions.">
+          <figcaption>Execution plan showing the 6 m x 8 m room and its four functional zones.</figcaption>
+        </figure>
+      </article>
+
+      <article class="visual-card viewer-card">
+        <div class="card-heading">
+          <div>
+            <p class="card-kicker">Interactive model</p>
+            <h2>3D Test-Bed Viewer</h2>
+          </div>
+          <button id="reset-view" class="small-button" type="button">Reset view</button>
+        </div>
+
+        <div id="viewer-container" class="viewer-container">
+          <model-viewer
+            id="testbed-viewer"
+            alt="Interactive 3D model of the SEVA Lab test-bed"
+            src="./Test-bed%20models/SEVA_Lab_Detailed_Final.glb"
+            ar
+            camera-controls
+            loading="eager"
+            reveal="auto"
+            touch-action="pan-y"
+            shadow-intensity="1"
+            camera-orbit="45deg 65deg auto"></model-viewer>
+          <div id="viewer-status" class="viewer-message" role="status">Loading 3D model...</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="specifications" aria-labelledby="specifications-title">
+      <div class="section-heading">
+        <h2 id="specifications-title">Test-Bed Specifications</h2>
+        <p>Detailed zoning, infrastructure, motion-capture, perception, and electrical requirements.</p>
+      </div>
+
+      <article class="spec-card">
+        <h3>Detailed Zone &amp; Furnishing Specifications</h3>
+        <div class="table-scroll" role="region" aria-label="Detailed zone and furnishing specifications" tabindex="0">
+          <table class="spec-table four-column">
+            <thead>
+              <tr>
+                <th scope="col">Zone Designation</th>
+                <th scope="col">Physical Bounds</th>
+                <th scope="col">Furnishing &amp; Hardware Mounted</th>
+                <th scope="col">Structural, Civil &amp; Environmental Requirements</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-label="Zone Designation">Zone 1: Active Arena</th>
+                <td data-label="Physical Bounds">4.0 m x 5.0 m (20.0 sq. m)</td>
+                <td data-label="Furnishing & Hardware">3x NVIDIA JetAuto AGVs, 2x quadcopters, 4x HTC Vive Base Stations 2.0</td>
+                <td data-label="Requirements">20 mm interlocking matte black/grey EVA foam puzzle mats; no high-gloss reflective surfaces; 4x wall camera brackets mounted at 2.5 m AFF.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Zone Designation">Zone 2: Server Rack</th>
+                <td data-label="Physical Bounds">0.8 m x 1.0 m (NW corner)</td>
+                <td data-label="Furnishing & Hardware">18U rolling rack, RTX 4090 workstation, Synology NAS, ASUS router, PoE+ switch</td>
+                <td data-label="Requirements">Open/enclosed heavy-duty rack, floor cable raceway, and placement directly in the AC airflow path for heat dissipation.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Zone Designation">Zone 3: Command Center</th>
+                <td data-label="Physical Bounds">3.1 m x 1.0 m (North wall)</td>
+                <td data-label="Furnishing & Hardware">2x heavy-duty office desks, 4x 4K monitors, 2x PhD laptops</td>
+                <td data-label="Requirements">Dual workstation layout; 1.0 m x 0.5 m SEVA Lab 3D logo nameplate centered at 1.8 m AFF; dual RJ45 wall drops terminating at Zone 2.</td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Zone Designation">Zone 4: Hardware Bay</th>
+                <td data-label="Physical Bounds">3.1 m x 1.0 m (South wall)</td>
+                <td data-label="Furnishing & Hardware">3x wall charging stations with floor pads, soldering bench, LiPo safe cabinet, drones</td>
+                <td data-label="Requirements">Static-dissipative workbench matting, flame-resistant LiPo storage, local soldering fume extractor, and 3 trailing cable runs to robot pads.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="spec-card environmental-card">
+        <h3>Wall Painting, Branding &amp; Environmental Controls</h3>
+        <ul class="requirements-list">
+          <li><strong>Wall painting:</strong> Ultra-flat, low-VOC white walls with a continuous 0.15 m SEVA Lab Blue (<code>#0B3D70</code>) accent band from 0.05 m to 0.20 m AFF.</li>
+          <li><strong>Lab signage:</strong> A 1.0 m x 0.5 m white backing plate with the 3D SEVA Lab logo, centered above the Command Center at 1.8 m AFF.</li>
+          <li><strong>HVAC:</strong> Minimum 1.5-ton / 1.5 kW wall-mounted split AC at 2.5 m AFF, maintaining 20°C-22°C under approximately 1000 W peak GPU load.</li>
+          <li><strong>Ceiling ventilation:</strong> One industrial three-blade fan at room center, 2.8 m AFF, providing gentle circulation without disturbing quadcopter flights.</li>
+          <li><strong>Window control:</strong> 100% optical and IR blackout roller blinds to protect RealSense and motion-capture sensors from direct sunlight.</li>
+          <li><strong>Safety:</strong> One Class ABC/D fire extinguisher near the entrance and dual 1.5 m wall-mounted shelves for spare parts.</li>
+        </ul>
+      </article>
+
+      <div class="subsection-heading">
+        <h3>Complete Hardware Manifest &amp; Technical Specifications</h3>
+      </div>
+
+      <article class="spec-card">
+        <h3>Computing, Storage &amp; Networking Infrastructure</h3>
+
+        <h4>1. Central GPU Compute Server (RTX 4090 Workstation)</h4>
+        <div class="table-scroll" role="region" aria-label="Central GPU compute server specifications" tabindex="0">
+          <table class="spec-table key-value-table"><tbody>
+            <tr><th scope="row" data-label="Item">GPU Architecture</th><td data-label="Specification">NVIDIA GeForce RTX 4090 Founders Edition (Ada Lovelace), 24 GB GDDR6X VRAM, 384-bit bus, 1,008 GB/s bandwidth</td></tr>
+            <tr><th scope="row" data-label="Item">Compute Cores</th><td data-label="Specification">16,384 CUDA cores, 512 fourth-generation Tensor cores, 128 third-generation RT cores</td></tr>
+            <tr><th scope="row" data-label="Item">CPU &amp; Memory</th><td data-label="Specification">Intel Core i9-14900K (24 cores / 32 threads, up to 6.0 GHz), 128 GB DDR5 5600 MHz ECC RAM</td></tr>
+            <tr><th scope="row" data-label="Item">Storage Subsystem</th><td data-label="Specification">2 TB NVMe PCIe 4.0 OS drive + 4 TB NVMe scratch cache for point clouds</td></tr>
+            <tr><th scope="row" data-label="Item">Network Interface</th><td data-label="Specification">Dual 10GbE / 2.5GbE RJ45 ports onboard</td></tr>
+            <tr><th scope="row" data-label="Item">Software Role</th><td data-label="Specification">ROS 2 Fast DDS Discovery Server, NVIDIA Isaac Sim digital twin, global 3D SLAM map merging, and deep-learning model training</td></tr>
+          </tbody></table>
+        </div>
+
+        <h4>2. Synology DiskStation DS925+ NAS (Central Storage)</h4>
+        <div class="table-scroll" role="region" aria-label="Synology NAS specifications" tabindex="0">
+          <table class="spec-table key-value-table"><tbody>
+            <tr><th scope="row" data-label="Item">Enclosure &amp; Disks</th><td data-label="Specification">4-bay enclosure with 4x 10 TB Seagate IronWolf 7200 RPM SATA HDDs in RAID 5, providing approximately 30 TB usable storage</td></tr>
+            <tr><th scope="row" data-label="Item">Cache &amp; Network</th><td data-label="Specification">Dual M.2 NVMe SSD cache slots with 2x 1 TB read/write cache; dual 2.5GbE RJ45 ports with LACP</td></tr>
+            <tr><th scope="row" data-label="Item">Throughput</th><td data-label="Specification">Up to 522 MB/s sequential read and 565 MB/s sequential write</td></tr>
+            <tr><th scope="row" data-label="Item">Software Role</th><td data-label="Specification">Continuous NFS mount at <code>/volume1/rosbags_seva</code> for rosbag2 files, video datasets, and model checkpoints</td></tr>
+          </tbody></table>
+        </div>
+
+        <h4>3. ASUS ROG Rapture GT-AX6000 Wi-Fi 6 Router</h4>
+        <div class="table-scroll" role="region" aria-label="ASUS router specifications" tabindex="0">
+          <table class="spec-table key-value-table"><tbody>
+            <tr><th scope="row" data-label="Item">Processor &amp; Specs</th><td data-label="Specification">2.0 GHz quad-core 64-bit CPU; dual-band Wi-Fi 6 (802.11ax) up to 6000 Mbps aggregate speed</td></tr>
+            <tr><th scope="row" data-label="Item">Wired Ports</th><td data-label="Specification">Dual 2.5G ports (1x WAN, 1x LAN) + 4x 1G LAN ports</td></tr>
+            <tr><th scope="row" data-label="Item">QoS &amp; Subnet</th><td data-label="Specification">Dedicated QoS prioritization for ROS 2 DDS UDP traffic on isolated subnet <code>192.168.50.0/24</code></td></tr>
+          </tbody></table>
+        </div>
+      </article>
+
+      <article class="spec-card">
+        <h3>Ground Truth &amp; Motion Capture System</h3>
+        <h4>HTC Vive Base Station 2.0 &amp; Tracker 3.0 System</h4>
+        <div class="table-scroll" role="region" aria-label="Ground truth and motion capture system specifications" tabindex="0">
+          <table class="spec-table key-value-table"><tbody>
+            <tr><th scope="row" data-label="Item">Base Stations (x4)</th><td data-label="Specification">SteamVR Tracking 2.0, 150° x 110° FOV, sub-millimeter positional accuracy at 240 Hz; corner-mounted at 2.5 m AFF</td></tr>
+            <tr><th scope="row" data-label="Item">Trackers (x3)</th><td data-label="Specification">HTC Vive Tracker 3.0 mounted to JetAuto robots through a 1/4-inch UNC camera thread; 7.5-hour battery life; integrated IMU</td></tr>
+            <tr><th scope="row" data-label="Item">VRPN Streaming</th><td data-label="Specification">Dedicated Windows master PC running SteamVR and a VRPN server, publishing <code>geometry_msgs/PoseStamped</code> to ROS 2</td></tr>
+          </tbody></table>
+        </div>
+      </article>
+
+      <article class="spec-card">
+        <h3>Perception &amp; Vision Sensors</h3>
+
+        <h4>1. Intel RealSense D455 Stereo Depth Camera</h4>
+        <div class="table-scroll" role="region" aria-label="Intel RealSense D455 specifications" tabindex="0">
+          <table class="spec-table key-value-table"><tbody>
+            <tr><th scope="row" data-label="Item">Optics &amp; Shutter</th><td data-label="Specification">Dual RGB-D, 95 mm baseline, and global shutter on RGB and depth sensors to reduce motion-blur distortion</td></tr>
+            <tr><th scope="row" data-label="Item">Resolution &amp; FOV</th><td data-label="Specification">1280 x 720 at 90 FPS; depth FOV 95° x 65°; operating range 0.6 m-6.0 m with less than 2% depth error at 4 m</td></tr>
+            <tr><th scope="row" data-label="Item">IMU</th><td data-label="Specification">Integrated Bosch BMI085 6DoF IMU for tightly coupled visual-inertial odometry</td></tr>
+          </tbody></table>
+        </div>
+
+        <h4>2. Luxonis OAK-D Pro Auto-Focus (Spatial AI Camera)</h4>
+        <div class="table-scroll" role="region" aria-label="Luxonis OAK-D Pro specifications" tabindex="0">
+          <table class="spec-table key-value-table"><tbody>
+            <tr><th scope="row" data-label="Item">Onboard Compute</th><td data-label="Specification">Intel Movidius Myriad X VPU with 4 TOPS neural-network inference</td></tr>
+            <tr><th scope="row" data-label="Item">Illumination</th><td data-label="Specification">Active stereo with IR dot projector and flood LED for textureless-surface depth perception in darkness</td></tr>
+            <tr><th scope="row" data-label="Item">Role</th><td data-label="Specification">Runs YOLO / MobileNet detection on-camera and outputs 3D spatial bounding-box coordinates over ROS 2</td></tr>
+          </tbody></table>
+        </div>
+
+        <h4>Livox Mid-360 3D Hybrid Solid-State LiDAR</h4>
+        <div class="table-scroll" role="region" aria-label="Livox Mid-360 specifications" tabindex="0">
+          <table class="spec-table key-value-table"><tbody>
+            <tr><th scope="row" data-label="Item">FOV &amp; Point Rate</th><td data-label="Specification">360° horizontal x 59° vertical non-repetitive scanning pattern; up to 200,000 points per second</td></tr>
+            <tr><th scope="row" data-label="Item">Range &amp; Communication</th><td data-label="Specification">40 m at 10% reflectivity, 70 m at 80% reflectivity; 100BASE-TX Ethernet publishing ROS 2 <code>sensor_msgs/PointCloud2</code></td></tr>
+          </tbody></table>
+        </div>
+      </article>
+
+      <article class="spec-card electrical-card">
+        <h3>Electrical Infrastructure &amp; Dual-Circuit Isolation</h3>
+        <p>Power is separated into two physically independent breaker circuits to protect GPU server operations from high-current bench short circuits.</p>
+        <div class="critical-note">
+          <strong>Critical electrical mandate:</strong>
+          Circuit A is reserved only for compute and networking equipment in Zone 2. Power tools, soldering irons, and battery chargers must not be connected to Circuit A. Battery charging must take place in Zone 4 on Circuit B using flame-resistant containment bags or metal ammunition cans.
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; SEVA Lab, IIT Tirupati.</p>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('#main-navigation');
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      navigation.classList.toggle('is-open', !isOpen);
+    });
+  </script>
+
+  <script>
+    const modelViewer = document.getElementById('testbed-viewer');
+    const viewerStatus = document.getElementById('viewer-status');
+    const resetButton = document.getElementById('reset-view');
+
+    modelViewer.addEventListener('load', () => {
+      viewerStatus.remove();
+    });
+
+    modelViewer.addEventListener('error', (event) => {
+      viewerStatus.textContent = `The 3D model could not be loaded (${event.detail?.type || 'unknown error'}). Open this page through a web server, not as a file:// URL.`;
+      viewerStatus.classList.add('error');
+    });
+
+    window.setTimeout(() => {
+      if (!customElements.get('model-viewer')) {
+        viewerStatus.textContent = 'The model-viewer component could not load. Check the internet connection or CDN access.';
+        viewerStatus.classList.add('error');
+      }
+    }, 8000);
+
+    resetButton.addEventListener('click', () => {
+      modelViewer.cameraOrbit = '45deg 65deg auto';
+      modelViewer.cameraTarget = 'auto auto auto';
+      modelViewer.jumpCameraToGoal();
+    });
+  </script>
+</body>
+</html>
